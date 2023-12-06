@@ -1,0 +1,13 @@
+$primary: #e6464b;
+
+$display-font-family: "inter";
+
+#root {
+    background-color: #f2f2f2;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+a {
+    text-decoration: none;
+}
