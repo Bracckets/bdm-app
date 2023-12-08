@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <div>
-        <NavBar pages={navList} heading="BDM" pageIndex={0} />
+        <NavBar pages={navList} heading="BDM" pageIndex={1} />
       </div>
       <footer
         style={{
@@ -24,7 +24,7 @@ function App() {
           marginRight: "auto",
         }}
       >
-        All rights reserved to Team 12. Abdulghani Khayat & Ahmed Shewaikan.
+        All rights reserved to Team 5. Abdulghani Khayat & Ahmed Shewaikan.
       </footer>
     </>
   );

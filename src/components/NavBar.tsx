@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HomeContent from "./content/HomeContent";
-import DonateContent from "./content/DonateContent";
+import BMContent from "./content/BMContent";
 
 interface Props {
   pages: string[];
@@ -21,9 +21,9 @@ function NavBar({ pages, heading, pageIndex }: Props) {
 
   function loadContent() {
     if (selectedIndex === 0) {
-      return HomeContent();
-    } else if (selectedIndex === 2) {
-      return DonateContent();
+      return <HomeContent />;
+    } else if (selectedIndex === 1) {
+      return <BMContent />;
     }
   }
 
@@ -51,7 +51,7 @@ function NavBar({ pages, heading, pageIndex }: Props) {
             {heading}
           </a>
           {getMessage()}
-          <ul className="nav nav-pills justify-content-center">
+          <ul className="nav nav-pills">
             {pages.map((item, index) => (
               <li
                 className={selectedIndex === index ? "nav-item" : "nav-item"}
@@ -62,16 +62,29 @@ function NavBar({ pages, heading, pageIndex }: Props) {
                   className={
                     selectedIndex === index ? "nav-link active" : "nav-link"
                   }
+                  style={{ cursor: "pointer" }}
                 >
                   {item}
                 </a>
               </li>
             ))}
           </ul>
-
-          <button className="btn btn btn-outline-success" type="submit">
-            Sign in
-          </button>
+          <div className="flex">
+            <button
+              className="btn btn btn-outline-success"
+              type="submit"
+              style={{ marginRight: "10px" }}
+            >
+              Sign in
+            </button>
+            <button
+              className="btn btn btn-outline-info"
+              type="submit"
+              style={{}}
+            >
+              Sign Up
+            </button>
+          </div>
         </div>
       </nav>
       {
