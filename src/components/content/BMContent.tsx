@@ -8,7 +8,7 @@ function BMContent() {
       <div className="clearfix">
         <h1 className="display-5">
           <img
-            src="src/assets/Blood_drop_plain.png"
+            src="/images/Blood_drop_plain.png"
             alt="Logo"
             width="50"
             height="50"
@@ -41,7 +41,7 @@ function BMContent() {
 
         <h1 className="display-6">
           <img
-            src="src/assets/Blood_drop_plain.png"
+            src="/images/Blood_drop_plain.png"
             alt="Logo"
             width="50"
             height="50"
@@ -63,7 +63,7 @@ function BMContent() {
                     scale: isActive === 0 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/A-plus-blood-bag.svg"
+                  src="/images/A-plus-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -79,7 +79,7 @@ function BMContent() {
                     scale: isActive === 1 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/B-plus-blood-bag.svg"
+                  src="/images/B-plus-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -95,7 +95,7 @@ function BMContent() {
                     scale: isActive === 2 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/AB-plus-blood-bag.svg"
+                  src="/images/AB-plus-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -111,7 +111,7 @@ function BMContent() {
                     scale: isActive === 3 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/O-plus-blood-bag.svg"
+                  src="/images/O-plus-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -129,7 +129,7 @@ function BMContent() {
                     scale: isActive === 4 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/A-neg-blood-bag.svg"
+                  src="/images/A-neg-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -145,7 +145,7 @@ function BMContent() {
                     scale: isActive === 5 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/B-neg-blood-bag.svg"
+                  src="/images/B-neg-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -161,7 +161,7 @@ function BMContent() {
                     scale: isActive === 6 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/AB-neg-blood-bag.svg"
+                  src="/images/AB-neg-blood-bag.svg"
                   alt=""
                 />
               </div>
@@ -177,7 +177,7 @@ function BMContent() {
                     scale: isActive === 7 ? "1.2" : "1",
                     transition: "0.25s all ease-in",
                   }}
-                  src="src/assets/O-neg-blood-bag.svg"
+                  src="/images/O-neg-blood-bag.svg"
                   alt=""
                 />
               </div>

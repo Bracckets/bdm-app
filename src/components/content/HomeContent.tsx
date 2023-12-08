@@ -9,7 +9,7 @@ function HomeContent() {
           <h1 className="display-5">
             {" "}
             <img
-              src="src/assets/Blood_drop_plain.png"
+              src="/images/Blood_drop_plain.png"
               alt="Logo"
               width="50"
               height="50"
@@ -43,7 +43,7 @@ function HomeContent() {
         >
           <h1 className="display-5">
             <img
-              src="src/assets/Blood_drop_plain.png"
+              src="/images/Blood_drop_plain.png"
               alt="Logo"
               width="50"
               height="50"

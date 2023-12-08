@@ -90,7 +90,7 @@ function NavBar({ pages, heading, pageIndex }: Props) {
       {
         <img
           style={{ marginBottom: "1rem", opacity: "75%" }}
-          src="./src/assets/BloodBags.jpg"
+          src="/images/BloodBags.jpg"
           alt="Logo"
           width="100%"
           height="786"
