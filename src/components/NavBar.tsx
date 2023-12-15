@@ -1,6 +1,7 @@
 import { useState } from "react";
 import HomeContent from "./content/HomeContent";
 import BMContent from "./content/BMContent";
+import SearchContent from "./content/SearchContent";
 interface Props {
   pages: string[];
   heading: string;
@@ -23,6 +24,9 @@ function NavBar({ pages, heading, pageIndex }: Props) {
       return <HomeContent />;
     } else if (selectedIndex === 1) {
       return <BMContent />;
+    }
+    else if (selectedIndex == 2) {
+      return <SearchContent/>;
     }
   }
 

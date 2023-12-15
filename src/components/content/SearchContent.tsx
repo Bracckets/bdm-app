@@ -18,3 +18,5 @@ function SearchContent() {
     </>
   );
 }
+
+export default SearchContent;
