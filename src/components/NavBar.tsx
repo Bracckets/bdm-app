@@ -1,7 +1,6 @@
 import { useState } from "react";
 import HomeContent from "./content/HomeContent";
 import BMContent from "./content/BMContent";
-
 interface Props {
   pages: string[];
   heading: string;
@@ -70,7 +69,8 @@ function NavBar({ pages, heading, pageIndex }: Props) {
             ))}
           </ul>
           <div className="flex">
-            <button
+          <a href="/SignPage.html" target="_blank" rel="noopener noreferrer">
+          <button
               className="btn btn btn-outline-success"
               type="submit"
               style={{ marginRight: "10px" }}
@@ -84,6 +84,7 @@ function NavBar({ pages, heading, pageIndex }: Props) {
             >
               Sign Up
             </button>
+          </a>
           </div>
         </div>
       </nav>

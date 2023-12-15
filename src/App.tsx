@@ -14,6 +14,7 @@ function App() {
   return (
     <>
       <div>
+
         <NavBar pages={navList} heading="BDM" pageIndex={1} />
       </div>
       <footer
