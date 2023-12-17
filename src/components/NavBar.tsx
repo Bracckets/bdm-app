@@ -24,9 +24,8 @@ function NavBar({ pages, heading, pageIndex }: Props) {
       return <HomeContent />;
     } else if (selectedIndex === 1) {
       return <BMContent />;
-    }
-    else if (selectedIndex == 2) {
-      return <SearchContent/>;
+    } else if (selectedIndex == 2) {
+      return <SearchContent />;
     }
   }
 
@@ -36,7 +35,7 @@ function NavBar({ pages, heading, pageIndex }: Props) {
   return (
     <>
       <nav
-        style={{ backgroundColor: "#f2f2f2" }}
+        style={{ backgroundColor: "#fff" }}
         className="navbar navbar-expand-lg"
       >
         <div className="container-fluid">
@@ -73,22 +72,22 @@ function NavBar({ pages, heading, pageIndex }: Props) {
             ))}
           </ul>
           <div className="flex">
-          <a href="/SignPage.html" target="_blank" rel="noopener noreferrer">
-          <button
-              className="btn btn btn-outline-success"
-              type="submit"
-              style={{ marginRight: "10px" }}
-            >
-              Sign in
-            </button>
-            <button
-              className="btn btn btn-outline-info"
-              type="submit"
-              style={{}}
-            >
-              Sign Up
-            </button>
-          </a>
+            <a href="/Login" target="_blank" rel="noopener noreferrer">
+              <button
+                className="btn btn btn-outline-success"
+                type="submit"
+                style={{ marginRight: "10px" }}
+              >
+                Sign in
+              </button>
+              <button
+                className="btn btn btn-outline-info"
+                type="submit"
+                style={{}}
+              >
+                Sign Up
+              </button>
+            </a>
           </div>
         </div>
       </nav>

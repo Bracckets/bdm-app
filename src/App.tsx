@@ -1,5 +1,7 @@
 import NavBar from "./components/NavBar";
-import "./App.css";
+import "./main.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignPage from "./components/SignPage";
 
 function App() {
   const navList = [
@@ -13,10 +15,15 @@ function App() {
 
   return (
     <>
-      <div>
-
-        <NavBar pages={navList} heading="BDM" pageIndex={1} />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            index
+            element={<NavBar pages={navList} heading="BDM" pageIndex={1} />}
+          />
+          <Route path="/Login" element={<SignPage />} />
+        </Routes>
+      </BrowserRouter>
       <footer
         style={{
           display: "table",

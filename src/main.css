@@ -1,6 +1,7 @@
 @charset "UTF-8";
-#root {
+#root, html {
   background-color: #f2f2f2;
+  overflow-x: hidden;
 }
 
 p {
