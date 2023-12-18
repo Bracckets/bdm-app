@@ -1,4 +1,11 @@
+import SCRow from "./SCRow"
+
+
+
 function HomeContent() {
+   
+  const sc = new SCRow()
+
   return (
     <>
       <div className="container-fluid">
@@ -81,6 +88,7 @@ function HomeContent() {
           </div>
         </div>
       </div>
+      {sc.data}
     </>
   );
 }

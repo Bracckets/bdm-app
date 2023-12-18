@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route
             index
-            element={<NavBar pages={navList} heading="BDM" pageIndex={1} />}
+            element={<NavBar pages={navList} heading="BDM" pageIndex={1} userStatus="user" />}
           />
           <Route path="/Login" element={<SignPage />} />
         </Routes>
@@ -34,6 +34,7 @@ function App() {
       >
         All rights reserved to Team 5. Abdulghani Khayat & Ahmed Shewaikan.
       </footer>
+      
     </>
   );
 }

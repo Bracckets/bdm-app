@@ -1,9 +1,19 @@
-export default function SCRow() {
-  const datas = [{ B_Id: 1 }, {}, {}, {}, {}, {}, {}];
+import httpReqs from "./httpReq";
 
-  var el = (
-    <div id="1">
-      <h1> Hello</h1>
-    </div>
-  );
+
+export default class SCRow {
+  data: string;
+
+  constructor() {
+    this.data = httpReqs();  
+  }
+  
+
+  scrow(): JSX.Element { 
+  return ( <>
+  <h1> {JSON.stringify(this.data)} </h1>
+  </>
+  )
+}
+
 }

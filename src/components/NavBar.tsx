@@ -2,10 +2,12 @@ import { useState } from "react";
 import HomeContent from "./content/HomeContent";
 import BMContent from "./content/BMContent";
 import SearchContent from "./content/SearchContent";
+import DonateContent from "./content/DonateContent";
 interface Props {
   pages: string[];
   heading: string;
   pageIndex: number;
+  userStatus: string;
 }
 
 function NavBar({ pages, heading, pageIndex }: Props) {
@@ -24,8 +26,10 @@ function NavBar({ pages, heading, pageIndex }: Props) {
       return <HomeContent />;
     } else if (selectedIndex === 1) {
       return <BMContent />;
-    } else if (selectedIndex == 2) {
+    } else if (selectedIndex === 2) {
       return <SearchContent />;
+    } else if (selectedIndex === 4) {
+      return <DonateContent userStatus={"guest"} />;
     }
   }
 

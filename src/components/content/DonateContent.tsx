@@ -1,5 +1,9 @@
-function DonateContent(userStatus: string) {
-  if (userStatus === "Guest") {
+interface Status {
+  userStatus: string
+}
+
+function DonateContent({userStatus}: Status) {
+  if (userStatus === "guest") {
     return (
       <>
         <div className="container-fluid">
@@ -10,7 +14,7 @@ function DonateContent(userStatus: string) {
             <h1 className="display-5">
               {" "}
               <img
-                src="src/assets/Blood_drop_plain.png"
+                src="/images/Blood_drop_plain.png"
                 alt="Logo"
                 width="50"
                 height="50"
@@ -30,10 +34,13 @@ function DonateContent(userStatus: string) {
             }
             <div className="row justify-content-end">
               <div className="col">
+                <a href="/Login">
                 <button className="btn btn btn-info btn-lg">
                   {" "}
                   Sign Up and Donate Today{" "}
                 </button>
+                </a>
+                
               </div>
             </div>
           </div>
@@ -42,7 +49,7 @@ function DonateContent(userStatus: string) {
     );
   }
 
-  if (userStatus === "User") {
+  if (userStatus === "user") {
     return (
       <>
         <div className="container-fluid">
