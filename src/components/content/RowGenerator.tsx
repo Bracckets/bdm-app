@@ -1,3 +1,5 @@
+import { render } from "react-dom"
+
 export default function RowGenerator() {
 
     let data = [
@@ -19,13 +21,53 @@ export default function RowGenerator() {
             is_Admin:	1,
             Blood_Group:	"A",
             Rh_Factor:	"+"
+        },
+        {
+            National_ID: "110044636",
+            Address: "Eastern Region, Dhahran, KFUPM",
+            FName: "Abdulghani",
+            Lname: "Khayatt",
+            BirthDate: "2002-06-15",
+            Gender: "M",
+            Weight: "74.00",
+            E_mail: "sewe@kfupm.edu.sa",
+            Phone: "0541333870",
+            Last_DDate: "2023-12-03",
+            DFLag:	1,
+            RFlag:	1,
+            EFlag:	1,
+            EID:	"A11111111",
+            is_Admin: 1,
+            Blood_Group:	"A",
+            Rh_Factor:	"+" 
+        },
+        {
+            National_ID: "110044636",
+            Address: "Eastern Region, Dhahran, KFUPM",
+            FName: "Abdulghani",
+            Lname: "Khayatt",
+            BirthDate: "2002-06-15",
+            Gender: "M",
+            Weight: "74.00",
+            E_mail: "sewe@kfupm.edu.sa",
+            Phone: "0541333870",
+            Last_DDate: "2023-12-03",
+            DFLag:	1,
+            RFlag:	1,
+            EFlag:	1,
+            EID:	"A11111111",
+            is_Admin: 1,
+            Blood_Group:	"A",
+            Rh_Factor:	"+"  
         }
 ]
 
     let d
+    let emp
+    let empList: any[] = []
     for(d of data) {
         if (d.is_Admin === 1) {
-            return(<>
+           emp = (<>
             <tr>
                 <td>
                     {d.National_ID}
@@ -43,13 +85,22 @@ export default function RowGenerator() {
                     {d.Address}
                 </td>
                 <td>
-                    <img src="/images/edit-text.png" alt="edit" style={{width: "32px", height: "32px"}}/>
-                </td>
+                    <button className="btn btn-sm btn-warning me-2">
+                    <img src="/images/edit-text.png" style={{width: "16px", height: "16px"}}/>
+                    </button>
 
+                    <button className="btn btn-sm btn-danger ">
+                    <img src="/images/x-mark.png" style={{width: "16px", height: "16px"}}/>
+                    </button>
+                    
+                </td>
             </tr>
             </>)
+            empList.push(emp)
         }
     }
+    
+    return [empList]
        
 
 }

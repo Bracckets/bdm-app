@@ -27,9 +27,9 @@ function NavBar({ pages, heading, pageIndex }: Props) {
     } else if (selectedIndex === 1) {
       return <BMContent />;
     } else if (selectedIndex === 2) {
-      return <SearchContent />;
+      return <SearchContent userStatus={"admin"} />;
     } else if (selectedIndex === 4) {
-      return <DonateContent userStatus={"guest"} />;
+      return <DonateContent userStatus={"admin"} />;
     }
   }
 
