@@ -128,7 +128,7 @@ function SignPage() {
             role="tabpanel"
             aria-labelledby="tab-register"
           >
-            <form action="/process" method="post">
+            <form action="action_page.php" method="post">
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="registerFName">
                   First Name
@@ -238,16 +238,17 @@ function SignPage() {
                   required
                   placeholder="Select Blood Type"
                 >
-                  <option value="1">A</option>
-                  <option value="2">B</option>
-                  <option value="3">O</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="O">O</option>
+                  <option value="AB">AB</option>
                 </select>
               </div>
 
               {/* Input for Rh Factor */}
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="RhFactor">
-                  Blood Type
+                  Rh Factor
                 </label>
                 <select
                   className="form-select mb-4"

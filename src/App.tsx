@@ -8,7 +8,6 @@ function App() {
     "Home",
     "Blood Matching",
     "Search",
-    "Locations",
     "Donate",
     "Order",
   ];

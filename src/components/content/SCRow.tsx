@@ -1,4 +1,4 @@
-import httpReqs from "./httpReq";
+/* import httpReqs from "./httpReq";
 
 
 export default class SCRow {
@@ -17,3 +17,5 @@ export default class SCRow {
 }
 
 }
+
+*/

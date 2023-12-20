@@ -28,8 +28,8 @@ function NavBar({ pages, heading, pageIndex }: Props) {
       return <BMContent />;
     } else if (selectedIndex === 2) {
       return <SearchContent userStatus={"admin"} />;
-    } else if (selectedIndex === 4) {
-      return <DonateContent userStatus={"admin"} />;
+    } else if (selectedIndex === 3) {
+      return <DonateContent userStatus={"guest"} />;
     }
   }
 

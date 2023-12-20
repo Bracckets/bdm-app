@@ -48,7 +48,9 @@ function BMContent() {
             className="align-text-top"
           ></img>
           To match a blood type, click on a blood bag.
+          
         </h1>
+        <h3 className="lead ms-5"> Note: Each blood bag can recieve/donate to itself </h3>
 
         <div className="container justify-content-center text-center">
           <div className="row row-cols-1 row-cols-lg-4 g-lg-5">
@@ -66,6 +68,25 @@ function BMContent() {
                   src="/images/A-plus-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 2 ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 3 || isActive === 4 || isActive === 7  ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
             <div className="col align-items-center">
@@ -82,6 +103,25 @@ function BMContent() {
                   src="/images/B-plus-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 2 ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 3 || isActive === 5 || isActive === 7  ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
             <div className="col align-items-center">
@@ -98,6 +138,25 @@ function BMContent() {
                   src="/images/AB-plus-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive !== 2 && isActive !== -1  ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
             <div className="col align-items-center">
@@ -114,6 +173,25 @@ function BMContent() {
                   src="/images/O-plus-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 0 || isActive === 1 || isActive === 2 ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 7 ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
           </div>
@@ -132,6 +210,25 @@ function BMContent() {
                   src="/images/A-neg-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 0 || isActive === 2 || isActive === 6 ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 7  ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
             <div className="col align-items-center">
@@ -148,8 +245,29 @@ function BMContent() {
                   src="/images/B-neg-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 1 || isActive === 2 || isActive === 6 ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 7  ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
+
+
             <div className="col align-items-center">
               <div className="p-3 align-items-center">
                 <img
@@ -164,6 +282,25 @@ function BMContent() {
                   src="/images/AB-neg-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 2  ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive === 4 || isActive === 5 || isActive === 7  ? "visible" : "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
             <div className="col align-items-center">
@@ -180,6 +317,25 @@ function BMContent() {
                   src="/images/O-neg-blood-bag.svg"
                   alt=""
                 />
+                <div>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: isActive !== 7 && isActive != -1 ? "visible" : "hidden",
+                    }}
+                  >
+                    {" "}
+                    Can donate{" "}
+                  </span>
+                  <div className="w-100"></div>
+                  <span
+                    className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-3"
+                    style={{
+                      visibility: "hidden",
+                    }}
+                  > Can Recieve </span>
+                </div>
               </div>
             </div>
           </div>
