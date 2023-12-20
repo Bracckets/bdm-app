@@ -1,6 +1,95 @@
 import { useState } from "react";
+import httpReqs from "../httpReq";
 
 function SignPage() {
+
+  const [signInR, setSignInR] = useState(JSON.parse("[]"))
+  const [signUpR, setSignUpR] = useState(JSON.parse("[]"))
+
+  const [signInFormData, setSignInFormData] = useState({
+    username: '',
+    password: ''
+  });
+  const [signUpFormData, setSignUpFormData] = useState({
+    fname: '',
+    mname: '',
+    lname: '',
+    username: '',
+    weight: '',
+    email: '',
+    password: '',
+    gender: '',
+    bloodt: '',
+    bloodrh: '',
+    nid: '',
+    bd: '',
+    md: '',
+    phone: '',
+    address: ''
+  });
+
+  const handleSignInInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setSignInFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+  const handleSignUpInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setSignUpFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSignInSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const postData = new FormData();
+    postData.append('username', signInFormData.username);
+    postData.append('password', signInFormData.password);
+
+   
+    let data = [signInFormData.username, signInFormData.password];
+    const response = await httpReqs("post", data, 'login');
+    setSignInR(response);
+  };
+  const handleSignUpSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const postData = new FormData();
+    postData.append('fname', signUpFormData.fname);
+    postData.append('mname', signUpFormData.mname);
+    postData.append('lname', signUpFormData.lname);
+    postData.append('username', signUpFormData.username);
+    postData.append('weight', signUpFormData.weight);
+    postData.append('email', signUpFormData.email);
+    postData.append('password', signUpFormData.password);
+    postData.append('gender', signUpFormData.gender);
+    postData.append('bloodt', signUpFormData.bloodt);
+    postData.append('bloodrh', signUpFormData.bloodrh);
+    postData.append('nid', signUpFormData.nid);
+    postData.append('bd', signUpFormData.bd);
+    postData.append('phone', signUpFormData.phone);
+    postData.append('address', signUpFormData.address);
+    let ldd = "null";
+    let df = "null";
+    let rf = "null";
+    let ef = "null";
+    let eid = "null";
+    let is_Admin = "null";
+
+    let data = [signUpFormData.nid, signUpFormData.address, signUpFormData.weight, signUpFormData.fname, signUpFormData.mname, signUpFormData.lname,
+      signUpFormData.bd, signUpFormData.gender, signUpFormData.email, signUpFormData.phone, ldd, df, rf, ef, eid, signUpFormData.username, 
+      signUpFormData.password, is_Admin, signUpFormData.bloodt, signUpFormData.bloodrh];
+    const response = await httpReqs("post", data, 'signup');
+    setSignUpR(response);
+  };
+
+  console.log(signInR)
+  console.log(signUpR)
+
   var [isActive, setActive] = useState(0);
 
   return (
@@ -70,22 +159,19 @@ function SignPage() {
             role="tabpanel"
             aria-labelledby="tab-login"
           >
-            <form action="action_page.php" method="post">
+            <form id="signInForm" onSubmit={handleSignInSubmit}>
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="loginName">
-                  Email or username
+                  Username
                 </label>
-                <input type="email" id="loginName" className="form-control" />
+                <input type="text" name="username" value={signInFormData.username} onChange={handleSignInInputChange} className="form-control" />
               </div>
 
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="loginPassword">
                   Password
                 </label>
-                <input
-                  type="password"
-                  id="loginPassword"
-                  className="form-control"
+                <input type="password" name="password" value={signInFormData.password} onChange={handleSignInInputChange} className="form-control"
                 />
               </div>
 
@@ -128,33 +214,36 @@ function SignPage() {
             role="tabpanel"
             aria-labelledby="tab-register"
           >
-            <form action="action_page.php" method="post">
+            <form id="signUpForm" onSubmit={handleSignUpSubmit}>
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="registerFName">
                   First Name
                 </label>
-                <input
-                  type="text"
-                  id="registerFName"
-                  className="form-control"
+                <input type="text" name="fname" value={signUpFormData.fname} onChange={handleSignUpInputChange} className="form-control" required
                 />
+              </div>
 
+              <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="registerMName">
                   Middle Name
                 </label>
-                <input
-                  type="text"
-                  id="registerMName"
-                  className="form-control"
+                <input type="text" name="mname" value={signUpFormData.mname} onChange={handleSignUpInputChange} className="form-control"
                 />
+              </div>
 
+              <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="registerLName">
                   Last Name
                 </label>
-                <input
-                  type="text"
-                  id="registerLName"
-                  className="form-control"
+                <input type="text" name="lname" value={signUpFormData.lname} onChange={handleSignUpInputChange} className="form-control" required
+                />
+              </div>
+
+              <div className="form-outline mb-4">
+                <label className="form-label" htmlFor="registerLName">
+                  Address
+                </label>
+                <input type="text" name="address" value={signUpFormData.address} onChange={handleSignUpInputChange} className="form-control"
                 />
               </div>
 
@@ -163,24 +252,32 @@ function SignPage() {
                 <label className="form-label" htmlFor="registerUsername">
                   Username
                 </label>
-                <input
-                  type="text"
-                  id="registerUsername"
-                  className="form-control"
-                  required
+                <input type="text" name="username" value={signUpFormData.username} onChange={handleSignUpInputChange} className="form-control" required
                 />
               </div>
 
-              {/*<!-- Email input -->*/}
+              
+              <div className="form-outline mb-4">
+                <label className="form-label" htmlFor="registerWeight">
+                  Weight
+                </label>
+                <input type="text" name="weight" value={signUpFormData.weight} onChange={handleSignUpInputChange} className="form-control" required
+                />
+              </div>
+
               <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="registerEmail">
                   Email
                 </label>
-                <input
-                  type="email"
-                  id="registerEmail"
-                  className="form-control"
-                  required
+                <input type="email" name="email" value={signUpFormData.email} onChange={handleSignUpInputChange} className="form-control" required
+                />
+              </div>
+
+              <div className="form-outline mb-4">
+                <label className="form-label" htmlFor="registerEmail">
+                  Phone
+                </label>
+                <input type="phone" name="phone" value={signUpFormData.phone} onChange={handleSignUpInputChange} className="form-control" required
                 />
               </div>
 
@@ -189,24 +286,7 @@ function SignPage() {
                 <label className="form-label" htmlFor="registerPassword">
                   Password
                 </label>
-                <input
-                  type="password"
-                  id="registerPassword"
-                  className="form-control"
-                  required
-                />
-              </div>
-
-              {/*<!-- Repeat Password input -->*/}
-              <div className="form-outline mb-4">
-                <label className="form-label" htmlFor="registerRepeatPassword">
-                  Repeat password
-                </label>
-                <input
-                  type="password"
-                  id="registerRepeatPassword"
-                  className="form-control"
-                  required
+                <input type="password" name="password" value={signUpFormData.password} onChange={handleSignUpInputChange} className="form-control" required
                 />
               </div>
 
@@ -215,16 +295,8 @@ function SignPage() {
                 <label className="form-label" htmlFor="gender">
                   Gender
                 </label>
-                <select
-                  className="form-select mb-4"
-                  id="gender"
-                  name="Gender"
-                  required
-                  placeholder="Select Gender"
-                >
-                  <option value="M">Male</option>
-                  <option value="F">Female</option>
-                </select>
+                <input type="text" name="gender" value={signUpFormData.gender} onChange={handleSignUpInputChange} className="form-control" required placeholder="m/f"
+                />
               </div>
 
               {/* Input for Blood Type */}
@@ -232,17 +304,8 @@ function SignPage() {
                 <label className="form-label" htmlFor="registerBtype">
                   Blood Type
                 </label>
-                <select
-                  className="form-select mb-4"
-                  id="registerBtype"
-                  required
-                  placeholder="Select Blood Type"
-                >
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="O">O</option>
-                  <option value="AB">AB</option>
-                </select>
+                <input type="text"  name="bloodt" value={signUpFormData.bloodt} onChange={handleSignUpInputChange} className="form-control" required placeholder="A/B/AB/O"
+                />
               </div>
 
               {/* Input for Rh Factor */}
@@ -250,16 +313,8 @@ function SignPage() {
                 <label className="form-label" htmlFor="RhFactor">
                   Rh Factor
                 </label>
-                <select
-                  className="form-select mb-4"
-                  id="RhFactor"
-                  name="Rh_Factor"
-                  required
-                  placeholder="Select Your Rh Factor"
-                >
-                  <option value="+">+</option>
-                  <option value="-">-</option>
-                </select>
+                <input type="text"  name="bloodrh" value={signUpFormData.bloodrh} onChange={handleSignUpInputChange} className="form-control" required placeholder="+/-"
+                />
               </div>
 
               {/* Input for National ID*/}
@@ -267,11 +322,7 @@ function SignPage() {
                 <label className="form-label" htmlFor="NationalID">
                   National Id
                 </label>
-                <input
-                  type="text"
-                  id="NationalID"
-                  className="form-control"
-                  required
+                <input type="text" name="nid" value={signUpFormData.nid} onChange={handleSignUpInputChange} className="form-control" required
                 />
               </div>
 
@@ -280,12 +331,7 @@ function SignPage() {
                 <label className="form-label" htmlFor="Birth_Date">
                   Birth Date
                 </label>
-                <input
-                  type="date"
-                  id="Birth_Date"
-                  name="Birth_Date"
-                  className="form-control"
-                  required
+                <input type="date" name="bd" value={signUpFormData.bd} onChange={handleSignUpInputChange} className="form-control" required
                 />
               </div>
 
@@ -294,12 +340,7 @@ function SignPage() {
                 <label className="form-check-label" htmlFor="diseasCheck">
                   Do you suffer from any Major Diseases? (Tick if Yes)
                 </label>
-                <input
-                  className="form-check-input me-2"
-                  type="checkbox"
-                  value=""
-                  id="diseaseCheck"
-                  aria-describedby="registerCheckHelpText"
+                <input className="form-check-input me-2" type="checkbox" name="md" value={signUpFormData.md} onChange={handleSignUpInputChange} aria-describedby="registerCheckHelpText"
                 />
               </div>
 

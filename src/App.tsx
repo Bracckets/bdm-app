@@ -2,6 +2,9 @@ import NavBar from "./components/NavBar";
 import "./main.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignPage from "./components/SignPage";
+import HistoryPage from "./components/HistoryPage";
+import DeleteRecord from "./components/content/DeleteRecord";
+import RequestBlood from "./components/content/RequestBlood";
 
 function App() {
   const navList = [
@@ -9,7 +12,7 @@ function App() {
     "Blood Matching",
     "Search",
     "Donate",
-    "Order",
+    "Report"
   ];
 
   return (
@@ -18,9 +21,12 @@ function App() {
         <Routes>
           <Route
             index
-            element={<NavBar pages={navList} heading="BDM" pageIndex={1} userStatus="user" />}
+            element={<NavBar pages={navList} heading="BDM" pageIndex={2} userStatus="user" />}
           />
           <Route path="/Login" element={<SignPage />} />
+          <Route path="/SearchHistory" element={<HistoryPage/>}/>
+          <Route path ="/DeleteRecord" element={<DeleteRecord/>} />
+          <Route path="/RequestBlood" element={<RequestBlood/>} />
         </Routes>
       </BrowserRouter>
       <footer

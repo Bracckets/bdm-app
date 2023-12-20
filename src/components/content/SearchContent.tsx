@@ -7,19 +7,22 @@ interface Status {
 }
 
 function SearchContent({ userStatus }: Status) {
+  const reportHandler = (event: MouseEvent) => {
+    console.log(event);
+  };
 
   var [active_r, setActive_r] = useState(true);
   var [active_d, setActive_d] = useState(true);
   var [active_e, setActive_e] = useState(true);
 
   const handelCheck_r = (event: MouseEvent) => {
-    setActive_r(active_r => !active_r)
+    setActive_r((active_r) => !active_r);
   };
   const handelCheck_d = (event: MouseEvent) => {
-    setActive_d(active_d => !active_d)
+    setActive_d((active_d) => !active_d);
   };
   const handelCheck_e = (event: MouseEvent) => {
-    setActive_e(active_e => !active_e)
+    setActive_e((active_e) => !active_e);
   };
 
   const handelClick = (event: MouseEvent) => {
@@ -86,6 +89,7 @@ function SearchContent({ userStatus }: Status) {
               type="checkbox"
               value="receivers"
               id="receivers_table"
+              role="switch"
               defaultChecked
               onClick={(MouseEvent) => handelCheck_r(MouseEvent)}
             />
@@ -119,8 +123,57 @@ function SearchContent({ userStatus }: Status) {
               Employees
             </label>
           </div>
+          <a href="/SearchHistory">
+            <button
+              className="btn btn-sm btn-info m-4"
+              onClick={(MouseEvent) => {
+                reportHandler(MouseEvent);
+              }}
+            >
+              Show History
+            </button>
+          </a>
+
+          <button className="btn btn-sm btn-warning m-2">
+            {
+              <img
+                src="/images/edit-text.png"
+                style={{ width: "16px", height: "16px" }}
+              />
+            }
+          </button>
+          <a href="/DeleteRecord">
+            <button className="btn btn-sm btn-danger m-2">
+              <img
+                src="/images/x-mark.png"
+                style={{ width: "16px", height: "16px" }}
+              />
+            </button>
+          </a>
+
+          <button className="btn btn-sm btn-success m-2">
+            <img
+              src="/images/arrow.png"
+              style={{ width: "16px", height: "16px" }}
+            />
+          </button>
+          <a href="/RequestBlood">
+            <button
+              className="btn btn-sm btn-secondary m-4"
+              onClick={(MouseEvent) => {
+                reportHandler(MouseEvent);
+              }}
+            >
+              {" "}
+              {/*Request Blood*/}
+              Request Blood
+            </button>
+          </a>
         </div>
-        <div className="container-fluid" style={{ display: active_e ? "" : "none" }}>
+        <div
+          className="container-fluid"
+          style={{ display: active_e ? "" : "none" }}
+        >
           {/*
     Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
     Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
@@ -134,15 +187,8 @@ function SearchContent({ userStatus }: Status) {
               <th data-field="name">Employee ID</th>
               <th data-field="salary">Name</th>
               <th data-field="country">Phone Number</th>
-              <th data-field="city">Address</th>
-
-              <th
-                data-field="actions"
-                data-formatter="operateFormatter"
-                data-events="operateEvents"
-                style={{ paddingLeft: "8px" }}
-              >
-                Actions
+              <th className="col-3" data-field="city">
+                Address
               </th>
             </thead>
             <tbody>
@@ -150,7 +196,10 @@ function SearchContent({ userStatus }: Status) {
             </tbody>
           </table>
         </div>
-        <div className="container-fluid" style={{ display: active_d ? "" : "none" }}>
+        <div
+          className="container-fluid"
+          style={{ display: active_d ? "" : "none" }}
+        >
           {/*
     Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
     Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
@@ -158,7 +207,7 @@ function SearchContent({ userStatus }: Status) {
 
           <h3> Donor Table</h3>
 
-          <table className="table table-success table-striped" >
+          <table className="table table-success table-striped">
             <thead>
               <th data-field="id">National ID</th>
               <th data-field="LD_Date">Last Donation Date</th>
@@ -166,22 +215,16 @@ function SearchContent({ userStatus }: Status) {
               <th data-field="phone">Phone Number</th>
               <th data-field="bType">Blood type</th>
               <th data-field="Gender">Gender</th>
-
-              <th
-                data-field="actions"
-                data-formatter="operateFormatter"
-                data-events="operateEvents"
-                style={{ paddingLeft: "8px" }}
-              >
-                Actions
-              </th>
             </thead>
             <tbody>
               <RowGenerator user={"donor"} />
             </tbody>
           </table>
         </div>
-        <div className="container-fluid" style={{ display: active_r ? "" : "none" }}>
+        <div
+          className="container-fluid"
+          style={{ display: active_r ? "" : "none" }}
+        >
           {/*
     Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
     Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
@@ -189,9 +232,7 @@ function SearchContent({ userStatus }: Status) {
 
           <h3> Recipent Table</h3>
 
-          <table
-            className="table table-warning table-striped"
-          >
+          <table className="table table-warning table-striped">
             <thead>
               <th data-field="id">National ID</th>
               <th data-field="email">Email</th>
@@ -199,15 +240,6 @@ function SearchContent({ userStatus }: Status) {
               <th data-field="phone">Phone Number</th>
               <th data-field="bType">Blood type</th>
               <th data-field="Gender">Gender</th>
-
-              <th
-                data-field="actions"
-                data-formatter="operateFormatter"
-                data-events="operateEvents"
-                style={{ paddingLeft: "8px" }}
-              >
-                Actions
-              </th>
             </thead>
             <tbody>
               <RowGenerator user={"recipent"} />

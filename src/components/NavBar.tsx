@@ -3,6 +3,9 @@ import HomeContent from "./content/HomeContent";
 import BMContent from "./content/BMContent";
 import SearchContent from "./content/SearchContent";
 import DonateContent from "./content/DonateContent";
+import HistoryPage from "./HistoryPage";
+import MyForm from "./playGround";
+import ReportContent from "./content/ReportContent";
 interface Props {
   pages: string[];
   heading: string;
@@ -23,14 +26,17 @@ function NavBar({ pages, heading, pageIndex }: Props) {
 
   function loadContent() {
     if (selectedIndex === 0) {
-      return <HomeContent />;
-    } else if (selectedIndex === 1) {
-      return <BMContent />;
+      return <HomeContent />;   // Home Page
+    } else if (selectedIndex === 1) { 
+      return <BMContent />; // Blood Matching Page
     } else if (selectedIndex === 2) {
-      return <SearchContent userStatus={"admin"} />;
+      return <SearchContent userStatus={"admin"} />; // Search Page
     } else if (selectedIndex === 3) {
-      return <DonateContent userStatus={"guest"} />;
+      return <DonateContent userStatus={"admin"} />; // Donate Page
+     }else if (selectedIndex === 4) {
+      return <ReportContent userStatus={"admin"}/>;
     }
+    
   }
 
   //Event Handler

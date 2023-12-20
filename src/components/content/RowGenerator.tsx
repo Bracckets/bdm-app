@@ -6,11 +6,14 @@ interface Status{
 }
 
 export default function RowGenerator({user}: Status) {
+
+    
+
     let [data, setData] = useState(JSON.parse("[]"))
 
     useEffect(() => {
         axios
-          .get("http://192.168.43.97:8080/api/admin/info/u")
+          .get("http://192.168.43.97:8080/api/admin/info/a")
           .then((response) => response.data)
           .then((json) => {
             setData(json);
@@ -20,7 +23,7 @@ export default function RowGenerator({user}: Status) {
           });
       }, []);
       
-    let d
+    let d: any
     let emp
     let empList: any[] = []
 
@@ -42,16 +45,6 @@ export default function RowGenerator({user}: Status) {
                 </td>
                 <td>
                     {d.Address}
-                </td>
-                <td>
-                    <button className="btn btn-sm btn-warning me-2">
-                    <img src="/images/edit-text.png" style={{width: "16px", height: "16px"}}/>
-                    </button>
-
-                    <button className="btn btn-sm btn-danger ">
-                    <img src="/images/x-mark.png" style={{width: "16px", height: "16px"}}/>
-                    </button>
-                    
                 </td>
             </tr>
             </>)
@@ -79,19 +72,6 @@ export default function RowGenerator({user}: Status) {
                  <td>
                      {d.Gender}
                  </td>
-                 <td>
-                 <button className="btn btn-sm btn-light me-2">
-                    <img src="/images/medical-report.png" alt="lo" style={{width: "16px", height: "16px"}}/>
-                    </button>
-                     <button className="btn btn-sm btn-warning me-2">
-                     <img src="/images/edit-text.png" style={{width: "16px", height: "16px"}}/>
-                     </button>
- 
-                     <button className="btn btn-sm btn-danger ">
-                     <img src="/images/x-mark.png" style={{width: "16px", height: "16px"}}/>
-                     </button>
-                     
-                 </td>
              </tr>
              </>)
              empList.push(emp)
@@ -99,7 +79,7 @@ export default function RowGenerator({user}: Status) {
         
          else if (d.RFlag === 1 && user === "recipent") {
             emp = (<>
-             <tr>
+             <tr id={d.National_ID}>
                  <td>
                      {d.National_ID}
                  </td>
@@ -118,26 +98,12 @@ export default function RowGenerator({user}: Status) {
                  <td>
                      {d.Gender}
                  </td>
-                 <td>
-                 <button className="btn btn-sm btn-light me-2" id={d.National_ID}>
-                    <img src="/images/medical-report.png" alt="lo" style={{width: "16px", height: "16px"}}/>
-                    </button>
-                     <button className="btn btn-sm btn-warning me-2" id={d.National_ID}>
-                     <img src="/images/edit-text.png" style={{width: "16px", height: "16px"}}/>
-                     </button>
- 
-                     <button className="btn btn-sm btn-danger" id={d.National_ID}>
-                     <img src="/images/x-mark.png" style={{width: "16px", height: "16px"}}/>
-                     </button>
-                     
-                 </td>
              </tr>
              </>)
              empList.push(emp)
          }
 
     }
-    
     return [empList]
        
 
